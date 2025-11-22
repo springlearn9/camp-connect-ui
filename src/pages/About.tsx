@@ -7,10 +7,10 @@ const About: React.FC = () => {
     <Box p={6}>
       <Box mb={6}>
         <Text as="h1" fontSize="2xl" fontWeight="bold" color="white" mb={2}>
-          About Comitte
+          About Campus Connect
         </Text>
         <Text color="gray.400" fontSize="lg">
-          Learn more about our committee management system
+          Your all-in-one campus community platform
         </Text>
       </Box>
 
@@ -23,21 +23,21 @@ const About: React.FC = () => {
                 <Info size={20} color="white" />
               </Box>
               <Text fontSize="xl" fontWeight="semibold" color="white">
-                What is Comitte?
+                What is Campus Connect?
               </Text>
             </Box>
           </Box>
           <Box>
             <Text color="gray.300" lineHeight="tall" mb={4}>
-              Comitte is a comprehensive committee management system designed to streamline 
-              organizational processes, enhance collaboration, and improve decision-making 
-              efficiency. Our platform provides tools for managing committee members, 
-              tracking bids, and maintaining transparent governance structures.
+              Campus Connect is a comprehensive campus community platform designed to enhance 
+              student life and campus engagement. Our platform provides tools for managing 
+              campus events, posting notices, and helping students recover lost items through 
+              our lost and found system.
             </Text>
             <Text color="gray.300" lineHeight="tall">
-              Built with modern technology and user-centric design principles, Comitte 
-              empowers organizations to operate more effectively while maintaining 
-              accountability and transparency in all committee activities.
+              Built with modern technology and user-centric design principles, Campus Connect 
+              empowers students and campus organizations to stay connected, informed, and 
+              organized throughout their academic journey.
             </Text>
           </Box>
         </Box>
@@ -56,11 +56,11 @@ const About: React.FC = () => {
           </Box>
           <Box>
             <Text color="gray.300" lineHeight="tall">
-              To revolutionize committee management by providing intuitive, powerful tools 
-              that promote transparency, efficiency, and collaborative decision-making. 
-              We believe that well-organized committees are the foundation of successful 
-              organizations, and our mission is to make committee management accessible 
-              and effective for teams of all sizes.
+              To create a vibrant, connected campus community by providing intuitive digital 
+              tools that facilitate communication, event management, and student collaboration. 
+              We believe that a well-connected campus community enhances the overall student 
+              experience, and our mission is to make campus life more organized, engaging, 
+              and accessible for everyone.
             </Text>
           </Box>
         </Box>
@@ -81,20 +81,38 @@ const About: React.FC = () => {
             <Box display="grid" gridTemplateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={4}>
               <Box p={4} bg="gray.800" rounded="lg">
                 <Text fontSize="lg" fontWeight="semibold" color="white" mb={2}>
-                  Member Management
+                  Event Management
                 </Text>
                 <Text color="gray.300" fontSize="sm">
-                  Efficiently manage committee members, roles, and permissions with 
-                  our intuitive user management system.
+                  Discover and manage campus events with our comprehensive event 
+                  calendar and registration system.
                 </Text>
               </Box>
               <Box p={4} bg="gray.800" rounded="lg">
                 <Text fontSize="lg" fontWeight="semibold" color="white" mb={2}>
-                  Bid Tracking
+                  Lost & Found
                 </Text>
                 <Text color="gray.300" fontSize="sm">
-                  Track and manage bids with comprehensive status monitoring, 
-                  deadline management, and approval workflows.
+                  Report lost items and help others find their belongings through 
+                  our dedicated lost and found tracking system.
+                </Text>
+              </Box>
+              <Box p={4} bg="gray.800" rounded="lg">
+                <Text fontSize="lg" fontWeight="semibold" color="white" mb={2}>
+                  Campus Notices
+                </Text>
+                <Text color="gray.300" fontSize="sm">
+                  Stay updated with important campus announcements, news, and 
+                  official notices in one centralized location.
+                </Text>
+              </Box>
+              <Box p={4} bg="gray.800" rounded="lg">
+                <Text fontSize="lg" fontWeight="semibold" color="white" mb={2}>
+                  User Feedback
+                </Text>
+                <Text color="gray.300" fontSize="sm">
+                  Share your thoughts and suggestions to help us continuously 
+                  improve the platform for the campus community.
                 </Text>
               </Box>
             </Box>
@@ -120,7 +138,7 @@ const About: React.FC = () => {
                   Version
                 </Text>
                 <Text color="white" fontSize="lg" fontWeight="semibold">
-                  2.1.0
+                  1.0.0
                 </Text>
               </Box>
               <Box>
@@ -128,7 +146,7 @@ const About: React.FC = () => {
                   Last Updated
                 </Text>
                 <Text color="white" fontSize="lg" fontWeight="semibold">
-                  October 2024
+                  November 2024
                 </Text>
               </Box>
               <Box>
