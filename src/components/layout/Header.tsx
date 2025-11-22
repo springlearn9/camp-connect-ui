@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <Search size={18} />
           </Box>
           <Input
-            placeholder="Search Comitte..."
+            placeholder="Search Campus Connect..."
             pl={9}
             bg="gray.800"
             borderColor="gray.700"

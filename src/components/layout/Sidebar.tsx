@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  LayoutDashboard, 
-  FileText, 
   LogOut, 
   Briefcase,
   BarChart3,
@@ -27,16 +25,6 @@ const Sidebar: React.FC = () => {
   const { logout } = useAuth();
 
   const navItems: NavItem[] = [
-    {
-      icon: <LayoutDashboard className="w-5 h-5" />,
-      label: 'Comitte',
-      path: '/committees',
-    },
-    {
-      icon: <FileText className="w-5 h-5" />,
-      label: 'Bids',
-      path: '/bids',
-    },
     {
       icon: <Calendar className="w-5 h-5" />,
       label: 'Events',
@@ -96,9 +84,9 @@ const Sidebar: React.FC = () => {
         <Link to="/dashboard">
           <Box display="flex" alignItems="center" justifyContent={{ base: 'center', md: 'flex-start' }} gap={3} _hover={{ opacity: 0.8 }}>
             <Box w={8} h={8} bg="red.600" rounded="md" display="flex" alignItems="center" justifyContent="center" flexShrink={0}>
-              <Text color="white" fontWeight="bold" fontSize="sm">C</Text>
+              <Text color="white" fontWeight="bold" fontSize="sm">CC</Text>
             </Box>
-            <Text display={{ base: 'none', md: 'block' }} fontSize="xl" fontWeight="bold" color="white">Comitte</Text>
+            <Text display={{ base: 'none', md: 'block' }} fontSize="xl" fontWeight="bold" color="white">Campus Connect</Text>
           </Box>
         </Link>
       </Box>

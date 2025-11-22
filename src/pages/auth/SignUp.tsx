@@ -74,11 +74,11 @@ const SignUp: React.FC = () => {
         <Box px={{ base: 4, sm: 6 }} pt={{ base: 6, sm: 8 }} pb={{ base: 4, sm: 6 }}>
           <Stack direction="row" gap={{ base: 3, sm: 4 }} align="center">
             <Box w={{ base: 8, sm: 10 }} h={{ base: 8, sm: 10 }} bg="red.600" rounded="full" display="flex" alignItems="center" justifyContent="center">
-              <Text color="white" fontWeight="bold" fontSize={{ base: 'md', sm: 'lg' }}>C</Text>
+              <Text color="white" fontWeight="bold" fontSize={{ base: 'md', sm: 'lg' }}>CC</Text>
             </Box>
             <Box>
               <Heading size={{ base: 'md', sm: 'lg' }} color="white">Create Account</Heading>
-              <Text color="gray.400" fontSize={{ base: 'xs', sm: 'sm' }}>Join Comitte Management</Text>
+              <Text color="gray.400" fontSize={{ base: 'xs', sm: 'sm' }}>Join Campus Connect Portal</Text>
             </Box>
           </Stack>
         </Box>

@@ -19,7 +19,7 @@ const SignIn: React.FC = () => {
     
     try {
       await login(username, password);
-      alert('Login successful! Welcome to Comitte Management System.');
+      alert('Login successful! Welcome to Campus Connect Portal.');
       navigate('/dashboard');
     } catch (err: any) {
       const errorMessage = err.message || 'Login failed. Please check your credentials.';
@@ -38,11 +38,11 @@ const SignIn: React.FC = () => {
         <Box px={{ base: 4, sm: 6 }} pt={{ base: 6, sm: 8 }} pb={{ base: 4, sm: 6 }}>
           <Stack direction="row" gap={{ base: 3, sm: 4 }} align="center">
             <Box w={{ base: 8, sm: 10 }} h={{ base: 8, sm: 10 }} bg="red.600" rounded="full" display="flex" alignItems="center" justifyContent="center">
-              <Text color="white" fontWeight="bold" fontSize={{ base: 'md', sm: 'lg' }}>C</Text>
+              <Text color="white" fontWeight="bold" fontSize={{ base: 'md', sm: 'lg' }}>CC</Text>
             </Box>
             <Box>
-              <Heading size={{ base: 'md', sm: 'lg' }} color="white">Comitte</Heading>
-              <Text color="gray.400" fontSize={{ base: 'xs', sm: 'sm' }}>Management System</Text>
+              <Heading size={{ base: 'md', sm: 'lg' }} color="white">Campus Connect</Heading>
+              <Text color="gray.400" fontSize={{ base: 'xs', sm: 'sm' }}>Portal</Text>
             </Box>
           </Stack>
         </Box>
