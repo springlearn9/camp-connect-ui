@@ -10,8 +10,6 @@ import { Notices } from './pages/notices';
 import { LostItems } from './pages/lost-items';
 import { FoundItems } from './pages/found-items';
 import About from './pages/About';
-import Feedback from './pages/Feedback';
-import AppGallery from './pages/AppGallery';
 import UserProfile from './pages/UserProfile';
 import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
@@ -108,22 +106,6 @@ const AppContent: React.FC = () => {
         element={
           <ProtectedRoute>
             <About />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/feedback"
-        element={
-          <ProtectedRoute>
-            <Feedback />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/app-gallery"
-        element={
-          <ProtectedRoute>
-            <AppGallery />
           </ProtectedRoute>
         }
       />

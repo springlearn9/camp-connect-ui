@@ -15,6 +15,7 @@ import {
   DialogFooter,
   DialogTitle
 } from '@chakra-ui/react';
+import { Upload, X } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { foundItemService } from '../../services/foundItemService';
 import type { FoundItemRequest } from '../../types/foundItem';
@@ -43,6 +44,8 @@ const CreateFoundItemModalFixed: React.FC<CreateFoundItemModalProps> = ({
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   useEffect(() => {
     if (user && isOpen) {
@@ -61,11 +64,51 @@ const CreateFoundItemModalFixed: React.FC<CreateFoundItemModalProps> = ({
     if (error) setError(null);
   };
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        setError('Please select a valid image file');
+        return;
+      }
+      
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setError('Image size should be less than 5MB');
+        return;
+      }
+
+      setSelectedImage(file);
+      
+      // Create preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+      
+      if (error) setError(null);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setSelectedImage(null);
+    setImagePreview(null);
+    setFormData(prev => ({ ...prev, photoUrl: '' }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log('Form submitted');
+    console.log('Form data:', formData);
+    console.log('reportedById:', formData.reportedById);
+    
     if (!formData.itemName || !formData.reportedById) {
-      setError('Please fill in all required fields');
+      const errorMsg = 'Please fill in all required fields (Item name is required)';
+      setError(errorMsg);
+      alert(errorMsg);
       return;
     }
 
@@ -73,11 +116,25 @@ const CreateFoundItemModalFixed: React.FC<CreateFoundItemModalProps> = ({
     setError(null);
 
     try {
-      await foundItemService.create(formData as FoundItemRequest);
+      // TODO: Upload image to server and get URL
+      // For now, we'll use the preview URL or a placeholder
+      const itemData = {
+        ...formData,
+        photoUrl: imagePreview || formData.photoUrl || ''
+      };
+      
+      console.log('Sending data to API:', itemData);
+      const result = await foundItemService.create(itemData as FoundItemRequest);
+      console.log('Item created successfully:', result);
+      
+      alert('Found item reported successfully!');
       onFoundItemCreated();
       handleClose();
     } catch (err: any) {
-      setError(err.message || 'Failed to create found item');
+      console.error('Error creating found item:', err);
+      const errorMsg = err.message || 'Failed to create found item';
+      setError(errorMsg);
+      alert(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -99,6 +156,8 @@ const CreateFoundItemModalFixed: React.FC<CreateFoundItemModalProps> = ({
       reportedById: 0
     });
     setError(null);
+    setSelectedImage(null);
+    setImagePreview(null);
     onClose();
   };
 
@@ -188,6 +247,70 @@ const CreateFoundItemModalFixed: React.FC<CreateFoundItemModalProps> = ({
                     _placeholder={{ color: 'gray.400' }}
                   />
                 </Box>
+
+                <Box>
+                  <Text fontSize="sm" fontWeight="medium" mb={2} color="gray.300">
+                    Item Photo
+                  </Text>
+                  
+                  {!imagePreview ? (
+                    <Box
+                      as="label"
+                      htmlFor="image-upload"
+                      display="flex"
+                      flexDirection="column"
+                      alignItems="center"
+                      justifyContent="center"
+                      p={6}
+                      border="2px dashed"
+                      borderColor="gray.600"
+                      rounded="lg"
+                      cursor="pointer"
+                      bg="gray.800"
+                      _hover={{ borderColor: 'blue.400', bg: 'gray.750' }}
+                      transition="all 0.2s"
+                    >
+                      <Upload size={32} color="#9CA3AF" style={{ marginBottom: '8px' }} />
+                      <Text color="gray.300" fontSize="sm" mb={1}>
+                        Click to upload image
+                      </Text>
+                      <Text color="gray.500" fontSize="xs">
+                        PNG, JPG up to 5MB
+                      </Text>
+                      <Input
+                        id="image-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        display="none"
+                      />
+                    </Box>
+                  ) : (
+                    <Box position="relative" rounded="lg" overflow="hidden">
+                      <img
+                        src={imagePreview}
+                        alt="Preview"
+                        style={{
+                          width: '100%',
+                          maxHeight: '200px',
+                          objectFit: 'cover',
+                          borderRadius: '8px'
+                        }}
+                      />
+                      <Button
+                        position="absolute"
+                        top={2}
+                        right={2}
+                        size="sm"
+                        colorPalette="red"
+                        onClick={handleRemoveImage}
+                        rounded="full"
+                      >
+                        <X size={16} />
+                      </Button>
+                    </Box>
+                  )}
+                </Box>
               </Stack>
             </DialogBody>
 
@@ -208,14 +331,10 @@ const CreateFoundItemModalFixed: React.FC<CreateFoundItemModalProps> = ({
               </Button>
               <Button
                 type="submit"
-                loading={loading}
-                colorPalette="gray"
-                variant="outline"
-                rounded="full"
-                bg="gray.600"
+                colorPalette="red"
+                bg="red.600"
                 color="white"
-                borderColor="gray.500"
-                _hover={{ bg: 'white', color: 'black', borderColor: 'gray.400' }}
+                _hover={{ bg: 'red.500' }}
                 transition="all 0.2s"
                 disabled={!formData.itemName || loading}
               >

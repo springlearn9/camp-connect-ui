@@ -2,9 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   LogOut, 
-  Briefcase,
   BarChart3,
-  Grid3X3,
   User,
   Calendar,
   Search,
@@ -54,16 +52,6 @@ const Sidebar: React.FC = () => {
       icon: <BarChart3 className="w-5 h-5" />,
       label: 'About',
       path: '/about',
-    },
-    {
-      icon: <Briefcase className="w-5 h-5" />,
-      label: 'Feedback',
-      path: '/feedback',
-    },
-    {
-      icon: <Grid3X3 className="w-5 h-5" />,
-      label: 'App Gallery',
-      path: '/app-gallery',
     },
   ];
 
