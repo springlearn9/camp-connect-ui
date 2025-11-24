@@ -74,7 +74,7 @@ const Sidebar: React.FC = () => {
             <Box w={8} h={8} bg="red.600" rounded="md" display="flex" alignItems="center" justifyContent="center" flexShrink={0}>
               <Text color="white" fontWeight="bold" fontSize="sm">CC</Text>
             </Box>
-            <Text display={{ base: 'none', md: 'block' }} fontSize="xl" fontWeight="bold" color="white">Campus Connect</Text>
+            <Text display={{ base: 'none', md: 'block' }} fontSize="lg" fontWeight="bold" color="white">Campus Connect</Text>
           </Box>
         </Link>
       </Box>
