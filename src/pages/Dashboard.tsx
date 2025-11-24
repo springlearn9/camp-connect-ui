@@ -315,7 +315,7 @@ const Dashboard: React.FC = () => {
                 <Text fontSize="lg" fontWeight="semibold" color="white" mb={1}>Recent Events</Text>
                 <Text color="gray.400" fontSize="sm">Latest campus events</Text>
               </Box>
-              <Button size="sm" variant="outline" onClick={() => navigate('/events')}>
+              <Button size="sm" variant="outline" colorPalette="blue" color="blue.300" borderColor="blue.500" _hover={{ bg: "blue.600", color: "white" }} onClick={() => navigate('/events')}>
                 View All <ArrowRight size={16} style={{ marginLeft: '4px' }} />
               </Button>
             </Box>
@@ -346,7 +346,7 @@ const Dashboard: React.FC = () => {
                 <Text fontSize="lg" fontWeight="semibold" color="white" mb={1}>Recent Notices</Text>
                 <Text color="gray.400" fontSize="sm">Important announcements</Text>
               </Box>
-              <Button size="sm" variant="outline" onClick={() => navigate('/notices')}>
+              <Button size="sm" variant="outline" colorPalette="orange" color="orange.300" borderColor="orange.500" _hover={{ bg: "orange.600", color: "white" }} onClick={() => navigate('/notices')}>
                 View All <ArrowRight size={16} style={{ marginLeft: '4px' }} />
               </Button>
             </Box>
@@ -380,7 +380,7 @@ const Dashboard: React.FC = () => {
                 <Text fontSize="lg" fontWeight="semibold" color="white" mb={1}>Recent Lost Items</Text>
                 <Text color="gray.400" fontSize="sm">Items reported missing</Text>
               </Box>
-              <Button size="sm" variant="outline" onClick={() => navigate('/lost-items')}>
+              <Button size="sm" variant="outline" colorPalette="red" color="red.300" borderColor="red.500" _hover={{ bg: "red.600", color: "white" }} onClick={() => navigate('/lost-items')}>
                 View All <ArrowRight size={16} style={{ marginLeft: '4px' }} />
               </Button>
             </Box>
@@ -414,7 +414,7 @@ const Dashboard: React.FC = () => {
                 <Text fontSize="lg" fontWeight="semibold" color="white" mb={1}>Recent Found Items</Text>
                 <Text color="gray.400" fontSize="sm">Items waiting to be claimed</Text>
               </Box>
-              <Button size="sm" variant="outline" onClick={() => navigate('/found-items')}>
+              <Button size="sm" variant="outline" colorPalette="green" color="green.300" borderColor="green.500" _hover={{ bg: "green.600", color: "white" }} onClick={() => navigate('/found-items')}>
                 View All <ArrowRight size={16} style={{ marginLeft: '4px' }} />
               </Button>
             </Box>
